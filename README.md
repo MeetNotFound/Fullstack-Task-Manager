@@ -1,87 +1,85 @@
-# 🚀 Fullstack Task Manager
+# 🚀 Fullstack Task Management Dashboard
 
-![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi)
-![SQLite](https://img.shields.io/badge/SQLite-07405E?style=for-the-badge&logo=sqlite&logoColor=white)
-![Tailwind](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
-![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
+[![Next.js](https://img.shields.io/badge/Frontend-Next.js%2015-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![JWT](https://img.shields.io/badge/Security-JWT-black?style=for-the-badge&logo=json-web-tokens)](https://jwt.io/)
+[![Tailwind CSS](https://img.shields.io/badge/UI-Tailwind%20CSS-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
 
-A powerful, secure, and responsive project management dashboard. This application features a robust **FastAPI** backend and a modern **Next.js** frontend, providing a seamless experience for managing personal tasks.
-
----
-
-## 📸 Application Previews
-
-**Main Dashboard & Task Analytics**
-![Dashboard Screenshot](./Dashboard.png)
-
-**Secure User Authentication**
-![Login Screenshot](./Login.png)
+A comprehensive project management tool featuring a secure RESTful API and a modern, responsive React interface. This project was developed as a technical assessment for the Software Developer Intern role.
 
 ---
 
-## ✨ Key Features
+## 📸 Application Preview
 
-- **🔐 Secure JWT Authentication:** User accounts with hashed passwords and token-based sessions. Users only see and manage their own tasks.
-- **📊 Real-time Task Summary:** Dynamic cards at the top of the dashboard provide an instant overview of total, pending, in-progress, and completed tasks.
-- **⚡ Full CRUD Capability:** Create, read, update status, and delete tasks with instant UI updates.
-- **🔍 Advanced Filtering:** Quickly filter your task list by status to stay focused on what matters.
-- **🎨 Modern UI/UX:** Built with Tailwind CSS for a clean, professional, and responsive design.
-- **📜 Interactive API Docs:** Built-in Swagger UI for testing backend endpoints.
+| Login & Authentication | Dashboard & Task Analytics |
+| :--- | :--- |
+| ![Login](./Login.png) | ![Dashboard](./Dashboard.png) |
 
 ---
 
-## 🛠️ Technical Stack & Decisions
+## 🛠️ Technical Decisions
 
-- **Frontend:** **Next.js (App Router)** + **Tailwind CSS**. *Decision: Chosen for superior performance, modern React patterns, and rapid UI development.*
-- **Backend:** **Python** + **FastAPI**. *Decision: High-performance framework that offers automatic data validation and interactive documentation.*
-- **Database:** **SQLite** with **SQLAlchemy ORM**. *Decision: Lightweight and efficient for development, requiring zero external setup.*
-- **Security:** **Bcrypt** for password hashing and **PyJWT** for secure, stateless authentication.
+During development, the following architectural choices were made to ensure scalability, security, and developer efficiency:
+
+* **FastAPI (Python):** Chosen for its high performance, native asynchronous support, and automatic generation of OpenAPI/Swagger documentation, which significantly streamlined backend testing.
+* **Next.js 15 (App Router):** Selected to leverage modern React patterns like Server Components and efficient client-side state management for a smooth user experience.
+* **Secure Authentication (JWT + Bcrypt):** While optional, I implemented **JSON Web Tokens** and **Bcrypt** password hashing to ensure data isolation. Users can only access and manage their own specific tasks.
+* **SQLite with SQLAlchemy ORM:** Used to provide a lightweight, zero-config persistence layer. Using an ORM allows for easy migration to PostgreSQL in a production environment.
+* **Tailwind CSS:** Utilized for a clean, professional "Dashboard" aesthetic without the overhead of heavy external UI libraries.
 
 ---
 
 ## 🚦 Local Setup Instructions
 
-### 1. Backend (FastAPI)
-1. Navigate to the backend directory:
-   ```bash
-   cd backend
-Create and activate a virtual environment:
+Follow these steps to get the project running on your local machine.
 
-Bash
+### 1. Prerequisites
+* Python 3.10+
+* Node.js 18+
+
+### 2. Backend Setup
+```bash
+cd backend
+# Create and activate virtual environment
 python -m venv venv
-# On Windows: .\venv\Scripts\activate
-Install dependencies:
+# Windows:
+.\venv\Scripts\activate
+# Mac/Linux:
+source venv/bin/activate
 
-Bash
+# Install dependencies
 pip install fastapi uvicorn sqlalchemy pydantic pyjwt bcrypt python-multipart
-Start the server:
 
-Bash
+# Run the server (available at http://127.0.0.1:8000)
 uvicorn main:app --reload
-2. Frontend (Next.js)
-Open a new terminal and navigate to the frontend directory:
+```
 
-Bash
+### 3. Frontend Setup
+```bash
 cd frontend
-Install dependencies:
-
-Bash
+# Install dependencies
 npm install
-Start the development server:
 
-Bash
+# Run the development server (available at http://localhost:3000)
 npm run dev
-🔮 Future Roadmap
-[ ] Database Scaling: Migration to PostgreSQL for production environments.
+```
 
-[ ] Containerization: Implement Docker and docker-compose for easy deployment.
+---
 
-[ ] Cloud Hosting: Deploy the frontend to Vercel and the backend to Render.
+## 🔮 Future Improvements
+If given more time to move this project toward a production-ready state, I would implement:
 
-[ ] Dark Mode: Add a theme toggle for enhanced user preference.
+Database Migration: Move from SQLite to PostgreSQL to handle concurrent users and complex relational queries more robustly.
 
-Contact
+Containerization: Implement Docker and docker-compose to ensure the application runs identically across all development and production environments.
+
+Enhanced Filtering & Search: Add a search bar to filter tasks by title/description and implement server-side pagination for large task lists.
+
+Unit & Integration Testing: Add a comprehensive test suite using pytest for the backend and Jest/React Testing Library for the frontend to prevent regressions.
+
+---
+
+## 📬 Contact
 Meet Pawar - meet.pawar24@gmail.com
 
-Project Link: https://github.com/MeetNotFound/Fullstack-Task-Manager
+GitHub Profile - https://github.com/MeetNotFound
