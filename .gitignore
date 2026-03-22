@@ -1,0 +1,15 @@
+# Python / Backend
+venv/
+__pycache__/
+*.db
+*.sqlite3
+
+# Node / Frontend
+node_modules/
+.next/
+out/
+build/
+
+# General
+.env
+.DS_Store
